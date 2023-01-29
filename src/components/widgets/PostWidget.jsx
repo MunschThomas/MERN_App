@@ -50,6 +50,8 @@ const PostWidget = ({
     dispatch(setPost({ post: updatedPost }))
   }
 
+  console.log("picturePath _ PostWidget", picturePath)
+
   return (
     <WidgetWrapper m="2rem 0">
       <Friend

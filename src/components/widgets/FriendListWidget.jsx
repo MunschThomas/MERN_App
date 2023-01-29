@@ -3,15 +3,13 @@ import Friend from "../Friend"
 import WidgetWrapper from "../WidgetWrapper"
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { useState } from "react"
-// import { setFriends } from "../../state/authSlice"
+import { setFriends } from "../../state/authSlice"
 
 const FriendListWidget = ({ userId }) => {
   const dispatch = useDispatch()
   const { palette } = useTheme()
   const token = useSelector((state) => state.token)
   const friends = useSelector((state) => state.user.friends)
-  // const [friends, setFriends] = useState([])
 
   const getFriends = async () => {
     const response = await fetch(
@@ -23,7 +21,6 @@ const FriendListWidget = ({ userId }) => {
     )
     const data = await response.json()
     dispatch(setFriends({ friends: data }))
-    // setFriends(data)
   }
 
   useEffect(() => {
